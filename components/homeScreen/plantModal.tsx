@@ -29,10 +29,6 @@ export function PlantModal({ visible, onClose, onSave }: PlantModalProps) {
   }, [visible]);
 
   const handleSave = async () => {
-    if (!id.trim()) {
-      setError('El ID es requerido');
-      return;
-    }
 
     if (!nombre.trim()) {
       setError('El nombre de la planta es requerido');
@@ -107,17 +103,6 @@ export function PlantModal({ visible, onClose, onSave }: PlantModalProps) {
             <Text style={styles.modalTitle}>Agregar Nueva Planta</Text>
             
             {error ? <Text style={styles.errorText}>{error}</Text> : null}
-            
-            <TextInput
-              style={styles.input}
-              placeholder="ID de la planta"
-              value={id}
-              onChangeText={(text) => {
-                setId(text);
-                setError('');
-              }}
-              keyboardType="numeric"
-            />
 
             <TextInput
               style={styles.input}
